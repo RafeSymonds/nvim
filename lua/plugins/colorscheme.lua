@@ -17,7 +17,7 @@ return {
 -- return {
 --     -- Other plugins ...
 --
---     "lancewilhelm/horizon-extended.nvim",
+--     "kevincal1226/horizon-extended.nvim",
 --     lazy = false,
 --     priority = 1000,
 --     config = function()
