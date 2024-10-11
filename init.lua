@@ -28,6 +28,3 @@ local wk = require("which-key")
 wk.add({
     { "<leader>t", ":lua open_split_terminal_and_resize()<CR>", desc = "Open Split Terminal" },
 })
--- wk.add({
---    { "<leader>t", ":split | terminal<CR> CTRL-<Down> i", desc = "Open Split Terminal" },
--- })
