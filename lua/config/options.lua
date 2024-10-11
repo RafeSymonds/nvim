@@ -12,6 +12,7 @@ vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.cindent = true
+vim.opt.smarttab = true
 
 vim.opt.title = true
 vim.opt.titlestring = "%{fnamemodify(getcwd(), ':t')}"
