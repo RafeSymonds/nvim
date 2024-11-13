@@ -2,17 +2,14 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     event = "LazyFile",
     opts = function()
-        LazyVim.toggle.map("<leader>ug", {
-            name = "Indention Guides",
-            get = function()
-                return require("ibl.config").get_config(0).enabled
-            end,
-            set = function(state)
-                require("ibl").setup_buffer(0, { enabled = state })
-            end,
-        })
+        -- Define toggle functionality manually
+        vim.keymap.set("n", "<leader>ug", function()
+            local state = not require("ibl.config").get_config(0).enabled
+            require("ibl").setup_buffer(0, { enabled = state })
+            print("Indentation Guides " .. (state and "Enabled" or "Disabled"))
+        end, { desc = "Toggle Indentation Guides" })
 
-        vim.cmd([[highlight IndentBlanklineChar guifg=#111111  ctermfg=black]]) -- Adjust brightness here
+        vim.cmd([[highlight IndentBlanklineChar guifg=#111111 ctermfg=black]]) -- Adjust brightness here
 
         return {
             indent = {
@@ -20,7 +17,6 @@ return {
                 priority = 2,
                 repeat_linebreak = false,
             },
-
             scope = {
                 show_start = false,
                 show_end = false,
