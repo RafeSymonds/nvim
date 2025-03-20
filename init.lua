@@ -28,3 +28,23 @@ local wk = require("which-key")
 wk.add({
     { "<leader>t", ":lua open_split_terminal_and_resize()<CR>", desc = "Open Split Terminal" },
 })
+
+require("lspconfig").rust_analyzer.setup({
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = {
+                allFeatures = true,
+            },
+            procMacro = {
+                enable = true,
+            },
+        },
+    },
+})
+
+require("conform").setup({
+    formatters_by_ft = {
+        typescript = { "prettier" },
+        javascript = { "prettier" },
+    },
+})
