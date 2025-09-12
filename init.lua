@@ -134,3 +134,10 @@ end)
 vim.keymap.set("n", "<C-c>", function()
     harpoon:list():clear()
 end, { desc = "Clear harpoon list" })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.ml",
+    callback = function()
+        vim.lsp.buf.format({ async = false })
+    end,
+})
