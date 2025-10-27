@@ -49,6 +49,8 @@ return {
             },
             overrides = function(colors)
                 return {
+                    Function = { fg = colors.palette.springGreen },
+                    String = { fg = colors.palette.lightBlue },
                     Normal = { bg = colors.palette.wave.bg },
                     YankHighlight = { bg = "#2d2d2d", fg = colors.fg }, -- Darker yank color
                     Visual = { bg = "#4a4a4a" }, -- Visual mode background color
