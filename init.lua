@@ -50,15 +50,9 @@ lspconfig.gopls.setup({
     },
 })
 
-lspconfig.clangd.setup({
-    cmd = {
-        "clangd",
-        "--header-insertion=never",
-        "--log=verbose",
-    },
-    filetypes = { "c", "cpp", "objc", "objcpp", "hpp", "h" },
-    root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
-})
+-- clangd is configured by LazyVim's lang.clangd extra; see lua/plugins/clangd.lua
+-- for the flag overrides. A second setup() here starts a second clangd client on
+-- every C/C++ buffer, which makes inlay hints render twice at stale columns.
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.ml",
